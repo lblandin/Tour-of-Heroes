@@ -1,0 +1,8 @@
+<h2>All Vilains</h2>
+<ul class="vilains">
+  <li *ngFor="let vilain of vilains">
+    <a routerLink="/detail/vilain/{{vilain.id}}">
+      <span class="badge">{{vilain.id}}</span> {{vilain.name}}
+    </a>
+  </li>
+</ul>
