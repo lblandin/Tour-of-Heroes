@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Hero } from '../app/hero';
+import { Hero } from '../interface/hero';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';

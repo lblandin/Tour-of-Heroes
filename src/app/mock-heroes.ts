@@ -1,13 +1,14 @@
-import { Hero } from './hero';
+import { Hero } from '../interface/hero';
 
 export const HEROES: Hero[] = [
-  { id: 12, name: 'Dr. Nice' },
-  { id: 13, name: 'Bombasto' },
-  { id: 14, name: 'Celeritas' },
-  { id: 15, name: 'Magneta' },
-  { id: 16, name: 'RubberMan' },
-  { id: 17, name: 'Dynama' },
-  { id: 18, name: 'Dr. IQ' },
-  { id: 19, name: 'Magma' },
-  { id: 20, name: 'Tornado' }
+  { id: 1, name: 'Endeavor' },
+  { id: 2, name: 'Hawks' },
+  { id: 3, name: 'Best Jeanist' },
+  { id: 4, name: 'Edgeshot' },
+  { id: 5, name: 'Mirko' },
+  { id: 6, name: 'Crust' },
+  { id: 7, name: 'Kamui Woods' },
+  { id: 8, name: 'Wash' },
+  { id: 9, name: 'Yoroi Musha' },
+  { id: 10, name: 'Ryukyu' }
 ];
