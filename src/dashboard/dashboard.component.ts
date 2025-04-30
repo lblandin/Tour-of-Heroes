@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from '../app/hero';
+import { Hero } from '../interface/hero';
 import { HeroService } from '../services/hero.service';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -21,6 +21,6 @@ export class DashboardComponent implements OnInit {
 
   getHeroes(): void {
     this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes.slice(1, 5));
+      .subscribe(heroes => this.heroes = heroes.slice(0, 5).filter((hero) => hero.id));
   }
 }
