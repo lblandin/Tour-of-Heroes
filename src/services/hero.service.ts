@@ -17,10 +17,12 @@ export class HeroService {
     return this.http.get<Hero[]>(this.apiUrl);
   }
 
-  getHero(id: number): Observable<Hero> {
+  getHeroById(id: number): Observable<Hero> {
     // For now, assume that a hero with the specified `id` always exists.
     // Error handling will be added in the next step of the tutorial.
-    const hero = HEROES.find((h: { id: number; }) => h.id === id)!;
-    return of(hero);
+    //const hero = HEROES.find((h: { id: number; }) => h.id === id)!;
+    //return of(hero);
+
+    return this.http.get<Hero>(this.apiUrl + '/' + id);
   }
 }
