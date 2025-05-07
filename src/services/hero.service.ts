@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Hero } from '../interface/hero';
-import { HEROES } from '../mock/mock-heroes';
+import { HEROES } from '../app/mock-heroes';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment.development';
 
@@ -13,8 +13,8 @@ export class HeroService {
   private http = inject(HttpClient);
   private apiUrl = environment.apiUrl + '/api/Heroes';
 
-  getHeroes(): Observable<Hero> {
-    return this.http.get<Hero>(this.apiUrl);
+  getHeroes(): Observable<Hero[]> {
+    return this.http.get<Hero[]>(this.apiUrl);
   }
 
   getHero(id: number): Observable<Hero> {
