@@ -1,23 +1,22 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Vilain } from '../interface/vilain';
 import { Observable, of } from 'rxjs';
-import { VILAINS } from '../mock/mock-vilains';
+import { environment } from '../environments/environment.development';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VilainService {
 
-  constructor() { }
+    private http = inject(HttpClient);
+    private apiUrl = environment.apiUrl + '/api/Vilains';
 
     getVilains(): Observable<Vilain[]> {
-      return of(VILAINS);
+      return this.http.get<Vilain[]>(this.apiUrl);
     }
   
     getVilain(id: number): Observable<Vilain> {
-      // For now, assume that a hero with the specified `id` always exists.
-      // Error handling will be added in the next step of the tutorial.
-      const vilain = VILAINS.find(v => v.id === id)!;
-      return of(vilain);
+      return this.http.get<Vilain>(this.apiUrl + '/' + id);
     }
 }
