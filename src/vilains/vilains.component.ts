@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Vilain } from '../interface/vilain';
 import { VilainService } from '../services/vilain.service';
 import { CommonModule } from '@angular/common';
@@ -14,7 +14,7 @@ import { RouterLink } from '@angular/router';
 export class VilainsComponent {
   vilains: Vilain[] = [];
 
-  constructor(private vilainService: VilainService) { }
+  private vilainService = inject(VilainService);
 
   ngOnInit(): void {
     this.getVilains();

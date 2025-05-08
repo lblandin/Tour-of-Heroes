@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Hero } from '../interface/hero';
 import { HeroService } from '../services/hero.service';
 import { RouterLink } from '@angular/router';
@@ -13,13 +13,13 @@ import { CommonModule } from '@angular/common';
 export class DashboardComponent implements OnInit {
   heroes: Hero[] = [];
 
-  constructor(private heroService: HeroService) { }
+  private heroService = inject(HeroService);
 
   ngOnInit(): void {
-    this.getHeroes();
+    this.getTopHeroes();
   }
 
-  getHeroes(): void {
+  getTopHeroes(): void {
     this.heroService.getHeroes()
       .subscribe(heroes => this.heroes = heroes.slice(0, 5).filter((hero: { id: any; }) => hero.id));
   }

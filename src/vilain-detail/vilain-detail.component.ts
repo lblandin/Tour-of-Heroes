@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Vilain } from '../interface/vilain';
 import { VilainService } from '../services/vilain.service';
@@ -14,11 +14,9 @@ import { FormsModule } from '@angular/forms';
 export class VilainDetailComponent {
   vilain: Vilain | undefined;
 
-  constructor(
-    private route: ActivatedRoute,
-    private vilainService: VilainService,
-    private location: Location
-  ) {}
+  private route = inject(ActivatedRoute);
+  private vilainService = inject(VilainService);
+  private location = inject(Location);
 
   ngOnInit(): void {
     this.getHero();

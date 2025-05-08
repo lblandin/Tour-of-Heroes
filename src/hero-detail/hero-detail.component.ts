@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Hero } from '../interface/hero';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -15,11 +15,9 @@ import { Location } from '@angular/common';
 export class HeroDetailComponent {
   hero: Hero | undefined;
 
-  constructor(
-    private route: ActivatedRoute,
-    private heroService: HeroService,
-    private location: Location
-  ) {}
+  private route = inject(ActivatedRoute);
+  private heroService = inject(HeroService);
+  private location = inject(Location);
 
   ngOnInit(): void {
     this.getHero();

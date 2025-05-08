@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Hero } from '../interface/hero';
 import { HeroService } from '../services/hero.service';
 import { CommonModule } from '@angular/common';
@@ -13,7 +13,7 @@ import { RouterLink } from '@angular/router';
 export class HeroesComponent implements OnInit {
   heroes: Hero[] = [];
 
-  constructor(private heroService: HeroService) { }
+  private heroService = inject(HeroService);
 
   ngOnInit(): void {
     this.getHeroes();
